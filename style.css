@@ -1,0 +1,123 @@
+/* Center game using flexbox */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  background: url("https://images.unsplash.com/photo-1605902711622-cfb43c4437d9?auto=format&fit=crop&w=1920&q=80") no-repeat center center/cover;
+  overflow: hidden;
+}
+
+/* Dark overlay for readability */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+/* Game container */
+.game-container {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Game box */
+.game-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: white;
+  max-width: 350px;
+  width: 90%;
+}
+
+/* Title and subtitle */
+.title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+.subtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 15px;
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Board Grid */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.cell {
+  width: 100px;
+  height: 100px;
+  font-size: 2rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+.cell:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+/* Win animation */
+.win {
+  animation: glow 0.8s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from { box-shadow: 0 0 10px #ffae00; }
+  to { box-shadow: 0 0 25px #ffae00; }
+}
+
+/* Message and buttons */
+.message {
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+button {
+  flex: 1;
+  background: #ffae00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+button:hover {
+  background: #ffaa33;
+}
+
